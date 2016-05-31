@@ -1,7 +1,7 @@
 action :write do
   execute "#{new_resource.description} - #{new_resource.domain} - #{new_resource.key}"  do
     command "defaults write \"#{new_resource.domain}\" \"#{new_resource.key}\" #{type_flag} #{value}"
-    user node['current_user']
+    user node['user']['id']
     not_if "defaults read \"#{new_resource.domain}\" \"#{new_resource.key}\" | grep ^#{value}$"
   end
   new_resource.updated_by_last_action(true)
