@@ -1,5 +1,5 @@
 osxdefaults_defaults "Disable natural scrolling" do
-  domain "/Users/#{node['current_user']}/Library/Preferences/.GlobalPreferences"
+  domain "NSGlobalDomain"
   key "com.apple.swipescrolldirection"
   boolean false
 end
